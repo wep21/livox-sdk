@@ -1,0 +1,9 @@
+[package]
+name = "livox-parser-fuzz"
+version = "0.0.0"
+edition = "2024"
+publish = false
+[workspace]
+[dependencies]
+livox-protocol = { path = "../crates/livox-protocol" }
+livox-lvx = { path = "../crates/livox-lvx" }

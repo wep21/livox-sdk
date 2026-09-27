@@ -1,0 +1,12 @@
+[package]
+name = "livox-sim"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+[dependencies]
+livox-protocol.workspace = true
+thiserror.workspace = true
+livox-lvx.workspace = true
+livox-device.workspace = true
+livox-transport.workspace = true

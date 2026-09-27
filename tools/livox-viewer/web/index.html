@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Livox viewer</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/viewer.js"></script>
+</head>
+<body>
+  <header>
+    <div class="brand"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3"/></svg><h1>Livox viewer</h1></div>
+    <span class="header-divider"></span><span id="source">Loading…</span>
+    <span id="mode" class="badge">Connecting</span>
+  </header>
+  <main>
+    <canvas id="cloud" tabindex="0" aria-label="3D point cloud. Drag to orbit, Shift-drag to pan, scroll to zoom."></canvas>
+    <div class="view-tools" aria-label="View">
+      <button id="fit" title="Fit the point cloud in view">Fit cloud</button>
+      <button id="top">Top view</button>
+    </div>
+    <details class="settings">
+      <summary>Display <span aria-hidden="true">⌄</span></summary>
+      <div class="settings-body">
+        <label for="color">Color by</label>
+        <select id="color"><option value="0">Height</option><option value="1">Reflectivity</option><option value="2">Distance</option></select>
+        <label for="size">Point size <output id="size-value">2.5 px</output></label>
+        <input id="size" type="range" min="1" max="6" step="0.5" value="2.5">
+        <label class="check"><input id="grid" type="checkbox" checked> Grid and axes</label>
+        <details class="diagnostics">
+          <summary>Data details</summary>
+          <p id="device">—</p>
+          <dl>
+            <div><dt>Point packets</dt><dd id="packets">0</dd></div>
+            <div><dt>Skipped types</dt><dd id="skipped">0</dd></div>
+            <div><dt>Invalid / foreign</dt><dd id="invalid">0 / 0</dd></div>
+            <div><dt>History</dt><dd id="history">—</dd></div>
+          </dl>
+          <p class="caption">Last timestamp</p><code id="timestamp">—</code><p id="clock">—</p>
+          <p id="detail">—</p>
+        </details>
+        <p class="note">Metres in sensor coordinates. Extrinsics and motion compensation are not applied. Zero returns are hidden.</p>
+      </div>
+    </details>
+    <div id="message" role="status" aria-live="polite"></div>
+    <div class="axis-key"><b class="x">X</b><b class="y">Y</b><b class="z">Z</b><span>Sensor space · m</span></div>
+    <div class="gesture-hint">Drag to orbit · Shift to pan · Scroll to zoom</div>
+  </main>
+  <footer>
+    <div class="transport">
+      <button id="play" class="primary">Play</button>
+      <button id="step">Step</button>
+      <button id="restart">Restart</button>
+      <label for="speed" class="sr-only">Playback speed</label>
+      <select id="speed"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select>
+    </div>
+    <div class="status"><span id="led"></span><span id="state">Ready</span><span class="status-divider">·</span><span><strong id="points">0</strong> points</span><span class="frame-stat">Frame <span id="frame">—</span></span></div>
+  </footer>
+</body>
+</html>

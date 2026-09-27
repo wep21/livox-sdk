@@ -1,0 +1,15 @@
+[package]
+name = "virtual-lidar"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+[[bin]]
+name = "livox-virtual-device"
+path = "src/main.rs"
+[dependencies]
+clap.workspace = true
+livox-sim.workspace = true
+livox-transport.workspace = true
+[dev-dependencies]
+livox-protocol.workspace = true

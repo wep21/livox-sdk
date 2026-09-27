@@ -1,0 +1,12 @@
+--- a/sdk_core/device_manager.cpp
++++ b/sdk_core/device_manager.cpp
+@@ -261,3 +261,3 @@
+ bool DeviceManager::CreateDetectionChannel() {
+-#ifdef WIN32
++#if defined(WIN32) || defined(__APPLE__)
+ #else
+@@ -327,3 +327,3 @@
+-#ifdef WIN32
++#if defined(WIN32) || defined(__APPLE__)
+ #else
+   if (dev_type == kLivoxLidarTypeMid360 || dev_type == kLivoxLidarTypeMid360s || dev_type == kLivoxLidarTypeAvia2 || dev_type == kLivoxLidarTypeMid360l) {

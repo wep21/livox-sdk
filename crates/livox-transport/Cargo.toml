@@ -1,0 +1,9 @@
+[package]
+name = "livox-transport"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+[dependencies]
+livox-protocol.workspace = true
+thiserror.workspace = true

@@ -1,0 +1,10 @@
+[package]
+name = "lvx-info"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+[dependencies]
+clap.workspace = true
+livox-lvx.workspace = true
+livox-protocol.workspace = true
